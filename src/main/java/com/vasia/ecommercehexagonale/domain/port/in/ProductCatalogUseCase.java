@@ -10,6 +10,7 @@ import java.util.UUID;
 public interface ProductCatalogUseCase {
     Product createProduct(String name , String description, BigDecimal price, int stockQuantity, String vendorId );
     Optional<Product> getProductById(UUID id);
+    Product updateProduct(UUID id, String name, String description, BigDecimal price, int stockQuantity, String vendorId);
     List<Product> getAllProductById(UUID id);
     void deleteProduct(UUID id);
 }
