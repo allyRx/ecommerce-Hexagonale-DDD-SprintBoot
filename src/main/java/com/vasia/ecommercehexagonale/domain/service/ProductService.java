@@ -29,7 +29,7 @@ public class ProductService implements ProductCatalogUseCase {
     }
 
     @Override
-    public List<Product> getAllProductById(UUID id) {
+    public List<Product> getAllProduct() {
         return productRepositoryPort.findAll();
     }
 
