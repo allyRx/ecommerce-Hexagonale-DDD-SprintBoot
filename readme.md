@@ -16,6 +16,8 @@ Architecture
     - adapter.out.persistence : implémentations JPA / repositories (non listées ici mais prévues).
   - Cette séparation permet de remplacer les technologies d'infrastructure sans impacter le domaine.
 
+Test unitaires :
+  - `ProductServiceTest.java`
 
 Comment lancer :
 - Clone du projet
@@ -24,4 +26,4 @@ Comment lancer :
 - `mvn spring-boot:run`
 - Accès Swagger : http://localhost:8080/api/swagger-ui.html
 
-
+NB: Project in progress
