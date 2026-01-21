@@ -8,12 +8,12 @@ import java.util.UUID;
 
 @Getter
 public class Product {
-    private UUID id;
-    private String name;
-    private String description;
-    private BigDecimal price;
+    private final UUID id;
+    private final String name;
+    private final String description;
+    private final BigDecimal price;
     private int stockQuantity;
-    private String vendorId;
+    private final String vendorId;
 
     // Constructeur complet (utilisé par l'adaptateur de persistance)
     public Product(UUID id, String name, String description, BigDecimal price, int stockQuantity, String vendorId){
