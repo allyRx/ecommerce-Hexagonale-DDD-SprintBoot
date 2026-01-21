@@ -1,4 +1,4 @@
-package com.vasia.ecommercehexagonale.application.config;
+package com.vasia.ecommercehexagonale.adapter.out.application.config;
 
 import com.vasia.ecommercehexagonale.domain.port.out.*;
 import com.vasia.ecommercehexagonale.domain.service.CartService;
@@ -25,8 +25,9 @@ public class DomainConfig {
             OrderRepositoryPort orderRepositoryPort,
             ProductRepositoryPort productRepositoryPort,
             PaymentGatewayPort paymentGatewayPort,
+            PaymentCustomerPort paymentCustomerPort,
             ShippingServicePort shippingServicePort,
             NotificationPort notificationPort) {
-        return new OrderService(orderRepositoryPort, productRepositoryPort, paymentGatewayPort, shippingServicePort, notificationPort);
+        return new OrderService(orderRepositoryPort, productRepositoryPort, paymentGatewayPort, paymentCustomerPort, shippingServicePort, notificationPort);
     }
 }

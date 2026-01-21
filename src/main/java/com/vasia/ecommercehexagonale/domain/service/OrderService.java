@@ -13,16 +13,19 @@ import java.util.UUID;
 
 public class OrderService implements OrderManagementPort {
 
-    private final ProductRepositoryPort productRepositoryPort;
     private final OrderRepositoryPort orderRepositoryPort;
+    private final ProductRepositoryPort productRepositoryPort;
+
     private final PaymentGatewayPort paymentGatewayPort;
+    private final PaymentCustomerPort paymentCustomerPort;
     private final ShippingServicePort shippingServicePort;
     private final NotificationPort notificationPort;
 
-    public OrderService(ProductRepositoryPort productRepositoryPort, OrderRepositoryPort orderRepositoryPort, PaymentGatewayPort paymentGatewayPort, ShippingServicePort shippingServicePort, NotificationPort notificationPort){
+    public OrderService(OrderRepositoryPort orderRepositoryPort, ProductRepositoryPort productRepositoryPort, PaymentGatewayPort paymentGatewayPort, PaymentCustomerPort paymentCustomerPort, ShippingServicePort shippingServicePort, NotificationPort notificationPort){
         this.productRepositoryPort = productRepositoryPort;
         this.orderRepositoryPort = orderRepositoryPort;
         this.paymentGatewayPort = paymentGatewayPort;
+        this.paymentCustomerPort = paymentCustomerPort;
         this.shippingServicePort = shippingServicePort;
         this.notificationPort = notificationPort;
     }
@@ -41,12 +44,15 @@ public class OrderService implements OrderManagementPort {
             productRepositoryPort.save(product);
         });
 
-        //create  order
+        //create order
         Order order = new Order(customerId,cart.getItems().values().stream().toList(),shippingAddress);
         Order saveOrder = orderRepositoryPort.save(order);
 
-        //take a process payment a
-        String transactionId = paymentGatewayPort.processPayment(saveOrder.getTotalAmount(),customerId);
+        //ensure customer exists in payment system
+        String stripeCustomerId = paymentCustomerPort.createOrRetrieveCustomer(customerId, customerId + "@customer.local");
+
+        //process payment with the valid Stripe customer ID
+        String transactionId = paymentGatewayPort.processPayment(saveOrder.getTotalAmount(), stripeCustomerId);
         saveOrder.markAsPaid(transactionId);
         orderRepositoryPort.save(saveOrder);
 

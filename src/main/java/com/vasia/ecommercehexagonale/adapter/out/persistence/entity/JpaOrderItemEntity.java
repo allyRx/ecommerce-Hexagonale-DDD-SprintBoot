@@ -1,4 +1,4 @@
-package com.vasia.ecommercehexagonale.adapter.out.entity;
+package com.vasia.ecommercehexagonale.adapter.out.persistence.entity;
 
 import com.vasia.ecommercehexagonale.domain.model.OrderItem;
 import jakarta.persistence.Entity;

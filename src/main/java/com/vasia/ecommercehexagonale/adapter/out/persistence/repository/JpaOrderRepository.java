@@ -6,6 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.UUID;
 
-public interface OrderRepository extends JpaRepository<JpaOrderEntity , UUID> {
+public interface JpaOrderRepository extends JpaRepository<JpaOrderEntity , UUID> {
     List<JpaOrderEntity> findByCustomerId(String customerId);
 }

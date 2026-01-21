@@ -1,4 +1,4 @@
-package com.vasia.ecommercehexagonale.adapter.out.repository;
+package com.vasia.ecommercehexagonale.adapter.out.persistence.repository;
 
 import com.vasia.ecommercehexagonale.adapter.out.persistence.entity.JpaCartEntity;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -27,8 +27,8 @@ public class JpaCartItemEmbeddable {
     }
 
     // Mapping : Embeddable -> Modèle de Domaine
-    public static CartItem toDomain(JpaCartItemEmbeddable embeddable) {
-        return new CartItem(embeddable.productId, embeddable.productName,
+    public static CartItem toDomain(UUID productId, JpaCartItemEmbeddable embeddable) {
+        return new CartItem(productId, embeddable.productName,
                 embeddable.price, embeddable.quantity);
     }
     // Mapping : Modèle de Domaine -> Embeddable

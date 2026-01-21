@@ -11,5 +11,6 @@ public interface CartManagementPort {
     Cart removeProductFromCart(String customerId, UUID productId);
     Cart updateProductQuantity(String customerId, UUID productId, int quantity);
     Cart applyDiscountCode(String customerId, String discountCode);
-
+    Cart getOrCreateCart(String customerId);
+    void clearCart(String customerId);
 }
