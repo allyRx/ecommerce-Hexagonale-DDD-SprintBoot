@@ -72,4 +72,16 @@ public class CartService implements CartManagementPort {
 
         return cartRepositoryPort.save(cart);
     }
+
+    @Override
+    public Cart getOrCreateCart(String customerId) {
+        return cartRepositoryPort.findByCustomerId(customerId)
+                .orElseGet(() -> cartRepositoryPort.save(new Cart(customerId)));
+    }
+
+    @Override
+    public void clearCart(String customerId) {
+        Cart cart = getOrCreateCart(customerId);
+
+    }
 }

@@ -38,7 +38,7 @@ public class JpaCartEntity {
         Map<UUID, CartItem> domainItems = entity.getItems().entrySet().stream()
                 .collect(Collectors.toMap(
                         Map.Entry::getKey,
-                        entry -> JpaCartItemEmbeddable.toDomain(entry.getValue())
+                        entry -> JpaCartItemEmbeddable.toDomain(entry.getKey(), entry.getValue())
                 ));
         Cart cart = new Cart(entity.getId(), entity.getCustomerId(), domainItems);
         if (entity.getAppliedDiscountCode() != null) {
