@@ -6,7 +6,6 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import java.math.BigDecimal;
 
 @Data
@@ -27,15 +26,4 @@ public class ProductRequest {
 
     @NotBlank(message = "L'ID du vendeur est obligatoire")
     private String vendorId;
-
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
-    public String getDescription() { return description; }
-    public void setDescription(String description) { this.description = description; }
-    public BigDecimal getPrice() { return price; }
-    public void setPrice(BigDecimal price) { this.price = price; }
-    public int getStockQuantity() { return stockQuantity; }
-    public void setStockQuantity(int stockQuantity) { this.stockQuantity = stockQuantity; }
-    public String getVendorId() { return vendorId; }
-    public void setVendorId(String vendorId) { this.vendorId = vendorId; }
 }

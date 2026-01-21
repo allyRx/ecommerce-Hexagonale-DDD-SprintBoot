@@ -11,6 +11,7 @@ public class CartItem {
     private UUID productId;
     @Getter
     private String productName;
+    @Getter
     private final BigDecimal price;
     @Getter
     private int quantity;
