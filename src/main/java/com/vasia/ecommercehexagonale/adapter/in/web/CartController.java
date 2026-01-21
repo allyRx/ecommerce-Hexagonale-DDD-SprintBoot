@@ -1,7 +1,5 @@
 package com.vasia.ecommercehexagonale.adapter.in.web;
 
-
-
 import com.vasia.ecommercehexagonale.adapter.in.dto.CartResponse;
 import com.vasia.ecommercehexagonale.domain.model.Cart;
 import com.vasia.ecommercehexagonale.domain.port.in.CartManagementPort;
@@ -75,7 +73,6 @@ public class CartController {
         Cart cart = cartManagementPort.applyDiscountCode(customerId, code);
         return new ResponseEntity<>(toResponse(cart), HttpStatus.OK);
     }
-
 
 
     private CartResponse toResponse(Cart cart) {
