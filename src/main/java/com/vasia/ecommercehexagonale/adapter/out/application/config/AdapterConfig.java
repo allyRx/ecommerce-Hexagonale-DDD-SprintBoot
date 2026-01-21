@@ -1,7 +1,7 @@
 package com.vasia.ecommercehexagonale.application.config;
 
-import com.vasia.ecommercehexagonale.adapter.out.persistence.repository.JpaCartAdapter;
-import com.vasia.ecommercehexagonale.adapter.out.persistence.repository.JpaProductRepositoryAdapter;
+import com.vasia.ecommercehexagonale.adapter.out.repository.JpaCartAdapter;
+import com.vasia.ecommercehexagonale.adapter.out.repository.JpaProductRepositoryAdapter;
 import com.vasia.ecommercehexagonale.domain.port.in.CartManagementPort;
 import com.vasia.ecommercehexagonale.domain.port.in.ProductCatalogUseCase;
 import com.vasia.ecommercehexagonale.domain.port.out.CartRepositoryPort;
@@ -35,4 +35,6 @@ public class AdapterConfig {
     public CartRepositoryPort cartRepositoryPort(JpaCartAdapter adapter) {
         return adapter;
     }
+
+
 }

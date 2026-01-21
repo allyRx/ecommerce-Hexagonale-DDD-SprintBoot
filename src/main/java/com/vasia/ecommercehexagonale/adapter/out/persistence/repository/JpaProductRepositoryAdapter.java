@@ -1,4 +1,4 @@
-package com.vasia.ecommercehexagonale.adapter.out.persistence.repository;
+package com.vasia.ecommercehexagonale.adapter.out.repository;
 
 import com.vasia.ecommercehexagonale.adapter.out.persistence.entity.JpaProductEntity;
 import com.vasia.ecommercehexagonale.domain.model.Product;
