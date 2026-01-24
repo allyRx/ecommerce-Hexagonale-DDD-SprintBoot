@@ -16,6 +16,12 @@
 - Supprimer un article du panier : `DELETE /api/carts/{customerId}/items/{productId}`
 - Appliquer un code promo : `POST /api/carts/{customerId}/discount?code={code}`
 
+### Commandes (Orders)
+- Créer une commande : `POST /order` (avec customerId et shippingAddress)
+- Récupérer une commande par ID : `GET /order/{orderId}`
+- Récupérer les commandes d'un client : `GET /order/customer/{customerId}`
+- Annuler une commande : `POST /order/{orderId}/cancel`
+
 ## Architecture
 - Hexagonale (Ports & Adapters)
   - Domaine (domain.model) : entités et logique métier (coeur).
@@ -26,14 +32,19 @@
   - Cette séparation permet de remplacer les technologies d'infrastructure sans impacter le domaine.
 
 ## Test unitaires
-  - `ProductServiceTest.java`
+  - `ProductServiceTest.java` : Tests des opérations CRUD produits (création, lecture, mise à jour, suppression)
 
 ## Comment lancer
 - Clone du projet
 - `docker compose up -d` (ou démarrer MariaDB)
 - `mvn clean install`
 - `mvn spring-boot:run`
-- Accès Swagger : `http://localhost:8080/api/swagger-ui.html`
+- Accès Swagger UI : `http://localhost:8080/swagger-ui.html`
+
+## Documentation API
+La documentation complète des API (Products, Carts, Orders) est disponible via Swagger UI :
+- **URL** : `http://localhost:8080/swagger-ui.html`
+- **OpenAPI JSON** : `http://localhost:8080/v3/api-docs`
 
 ## Status
 Project in progress
